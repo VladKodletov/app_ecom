@@ -1,3 +1,16 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    Center(
+      child: Text(
+        'Приветос, Котлета!',
+        style: TextStyle(fontSize: 30),
+        textDirection: TextDirection.ltr,
+      ),
+    ),
+  ); //метод который выводит что-то на экран
+}
 
 
 
