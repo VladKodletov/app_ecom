@@ -1,13 +1,37 @@
+// ignore_for_file: avoid_print, prefer_const_constructors
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    Center(
-      child: Text(
-        'Приветос, Котлета!',
-        style: TextStyle(fontSize: 30),
-        textDirection: TextDirection.ltr,
+    MaterialApp(
+      home: Scaffold(
+          backgroundColor: CupertinoColors.inactiveGray,
+          appBar: AppBar(
+            title: Text('Привет, Котлетос!'),
+            centerTitle: true,
+          ),
+          body: Center(
+            child: Text(
+              'Здесь творится история!',
+              style: TextStyle(fontSize: 30, color: Colors.deepPurple),
+            ),
+          )),
+      /*Center(
+        child: 
+        Text(
+          'Приветос, Котлета!',
+          style: TextStyle(
+            fontSize: 30,
+            color: Colors.red,
+            fontWeight: FontWeight.w700,
+          ),
+          textDirection: TextDirection.ltr,
+        ),
+
       ),
+      */
     ),
   ); //метод который выводит что-то на экран
 }
