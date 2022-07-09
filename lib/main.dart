@@ -3,37 +3,48 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-          backgroundColor: CupertinoColors.inactiveGray,
-          appBar: AppBar(
-            title: Text('Привет, Котлетос!'),
-            centerTitle: true,
-          ),
-          body: Center(
-            child: Text(
-              'Здесь творится история!',
-              style: TextStyle(fontSize: 30, color: Colors.deepPurple),
-            ),
-          )),
-      /*Center(
-        child: 
-        Text(
-          'Приветос, Котлета!',
-          style: TextStyle(
-            fontSize: 30,
-            color: Colors.red,
-            fontWeight: FontWeight.w700,
-          ),
-          textDirection: TextDirection.ltr,
-        ),
+void main() => runApp(experimentalApp());
 
+class experimentalApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.lightBlue,
+        appBar: AppBar(
+          title: Text('Интересное приложение'),
+          centerTitle: true,
+        ),
+        // ignore: prefer_const_literals_to_create_immutables
+        body: Center(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: <Widget>[
+                  LinearProgressIndicator(
+                    value: 23,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    '98 %',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
+                  Text(
+                    'Нажми на кнопку - получишь результат',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  )
+                ]),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.cloud_download),
+        ),
       ),
-      */
-    ),
-  ); //метод который выводит что-то на экран
+    );
+  }
 }
 
 
@@ -114,9 +125,36 @@ void main() {
 
 
 
+  /*runApp(
+    MaterialApp(
+      home: Scaffold(
+          backgroundColor: CupertinoColors.inactiveGray,
+          appBar: AppBar(
+            title: Text('Привет, Котлетос!'),
+            centerTitle: true,
+          ),
+          body: Center(
+            child: Text(
+              'Здесь творится история!',
+              style: TextStyle(fontSize: 30, color: Colors.deepPurple),
+            ),
+          )),
+      /*Center(
+        child: 
+        Text(
+          'Приветос, Котлета!',
+          style: TextStyle(
+            fontSize: 30,
+            color: Colors.red,
+            fontWeight: FontWeight.w700,
+          ),
+          textDirection: TextDirection.ltr,
+        ),
 
-
-
+      ),
+      */
+    ),
+  ); //метод который выводит что-то на экран*/
 
 
 
