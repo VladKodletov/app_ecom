@@ -1,10 +1,94 @@
 // ignore_for_file: avoid_print, prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() => runApp(experimentalApp());
 
+// ignore: camel_case_types, use_key_in_widget_constructors
+class experimentalApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    //метод createState тк нет метода сборки(build)
+    return _MyFirstAppState(); //этот метод возвращает нам экземпляр класса State
+  }
+}
+
+class _MyFirstAppState extends State<experimentalApp> {
+  //имя класса начин с _ -идентифиц
+  bool _loading=true; //приват знач, а состояние всех виджетов
+  double _progressValue=0; //принято делать приватными
+  @override
+  void initState() {
+    _loading = false;
+    _progressValue = 0.0;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.lightBlue,
+        appBar: AppBar(
+          title: Text('Интересное приложение'),
+          centerTitle: true,
+        ),
+        // ignore: prefer_const_literals_to_create_immutables
+        body: Center(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: _loading
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: <Widget>[
+                      LinearProgressIndicator(
+                        value: _progressValue,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        '${(_progressValue * 100).round()}%',
+                        style: TextStyle(color: Colors.black, fontSize: 20),
+                      ),
+                    ],
+                  )
+                : Text(
+                    'Нажми на кнопку - получишь результат',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (() => setState(() {
+                //метод setState-вызывает м-д сборки build
+                _loading = !_loading; //который перерис все виджеты
+                _updateProgress();
+              })),
+          child: Icon(Icons.cloud_download),
+        ),
+      ),
+    );
+  }
+
+  void _updateProgress() {
+    const oneSec = const Duration(seconds: 1);
+    Timer.periodic(oneSec, (Timer t) {
+      setState(() {
+        _progressValue += 0.2;
+        if (_progressValue.toStringAsFixed(1) == '1.0') {
+          _loading = false;
+          t.cancel();
+          _progressValue = 0.0;
+          return;
+        }
+      });
+    });
+  }
+}
+
+/*
 class experimentalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,87 +129,9 @@ class experimentalApp extends StatelessWidget {
       ),
     );
   }
-}
+} */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*runApp(
+/*runApp(
     MaterialApp(
       home: Scaffold(
           backgroundColor: CupertinoColors.inactiveGray,
@@ -155,22 +161,6 @@ class experimentalApp extends StatelessWidget {
       */
     ),
   ); //метод который выводит что-то на экран*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*import 'package:flutter/material.dart';
 
