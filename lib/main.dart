@@ -16,8 +16,8 @@ class experimentalApp extends StatefulWidget {
 
 class _MyFirstAppState extends State<experimentalApp> {
   //имя класса начин с _ -идентифиц
-  bool _loading=true; //приват знач, а состояние всех виджетов
-  double _progressValue=0; //принято делать приватными
+  bool _loading = true; //приват знач, а состояние всех виджетов
+  double _progressValue = 0; //принято делать приватными
   @override
   void initState() {
     _loading = false;
@@ -28,6 +28,9 @@ class _MyFirstAppState extends State<experimentalApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'PoiretOne',
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 213, 203, 231),
@@ -63,7 +66,10 @@ class _MyFirstAppState extends State<experimentalApp> {
                   )
                 : Text(
                     'Нажми на кнопку - получишь результат',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
                   ),
           ),
         ),
