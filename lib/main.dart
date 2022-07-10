@@ -30,20 +30,21 @@ class _MyFirstAppState extends State<experimentalApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 213, 203, 231),
         appBar: AppBar(
           title: Text('Интересное приложение'),
           centerTitle: true,
         ),
         // ignore: prefer_const_literals_to_create_immutables
         body: Center(
-          child: Stack(
+          /*child: Stack(
             fit: StackFit.expand,
             children: <Widget> [
               Image(image: AssetImage('Assets/images/015 bg.jpg')),
             Image.asset('Assets/icons/015 icon.png'),
             ],
-          ),
-          /*child: Container(
+          ),*/
+          child: Container(
             padding: EdgeInsets.all(16),
             child: _loading
                 ? Column(
@@ -64,7 +65,7 @@ class _MyFirstAppState extends State<experimentalApp> {
                     'Нажми на кнопку - получишь результат',
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
-          ),*/
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (() => setState(() {
