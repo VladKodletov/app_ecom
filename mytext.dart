@@ -101,5 +101,10 @@
 ///происходит вызов метода createState, который порождает объект состояния (State object)
 ///Второй - в State Object - сначала вызывается коструктор, далее проверка.
 ///
+///Layout Widget - single(child:) & multi(children:)
+///
+///Container - уже содержит в себе встроенные виджеты Padding &
+///Alignment. Также имеет decorated box - для оформления рамок.
+///
 
 

@@ -35,7 +35,10 @@ class _MyFirstAppState extends State<experimentalApp> {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 213, 203, 231),
         appBar: AppBar(
-          title: Text('Интересное приложение'),
+          title: Text(
+            'Интересное приложение',
+            style: TextStyle(fontWeight: FontWeight.w800),
+          ),
           centerTitle: true,
         ),
         // ignore: prefer_const_literals_to_create_immutables
@@ -49,6 +52,12 @@ class _MyFirstAppState extends State<experimentalApp> {
           ),*/
           child: Container(
             padding: EdgeInsets.all(16),
+            width: 400,
+            height: 500,
+            alignment: Alignment.center,
+            margin: EdgeInsets.all(50),
+            decoration:
+                BoxDecoration(color: Colors.amber, border: Border.all()),
             child: _loading
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -66,10 +75,11 @@ class _MyFirstAppState extends State<experimentalApp> {
                   )
                 : Text(
                     'Нажми на кнопку - получишь результат',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                    ),
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
                   ),
           ),
         ),
