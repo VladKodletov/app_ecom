@@ -1,9 +1,167 @@
 // ignore_for_file: avoid_print, prefer_const_constructors
 
-import 'dart:async';
 import 'package:flutter/material.dart';
 
-void main() => runApp(experimentalApp());
+void main() => runApp(WeatherApp());
+
+class WeatherApp extends StatelessWidget {
+  @override
+  // TODO: implement key
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu_open)),
+          backgroundColor: Color.fromARGB(255, 203, 232, 255),
+          title: Text(
+            'Weather build',
+            style: TextStyle(color: Colors.indigo),
+          ),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.settings_accessibility_sharp))
+          ],
+        ),
+        body: _buildBodyWeather(),
+      ),
+    );
+  }
+}
+
+Widget _buildBodyWeather() {
+  return SingleChildScrollView(
+    child: Column(
+      children: <Widget>[
+        _headImage(),
+      ],
+    ),
+  );
+}
+
+Image _headImage() {
+  return Image(
+    image: NetworkImage('https://r-hockey.ru/assets/no_player_sm.jpg'),
+    fit: BoxFit.cover,
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*void main() => runApp(experimentalApp());
 
 // ignore: camel_case_types, use_key_in_widget_constructors
 class experimentalApp extends StatefulWidget {
@@ -42,7 +200,44 @@ class _MyFirstAppState extends State<experimentalApp> {
           centerTitle: true,
         ),
         // ignore: prefer_const_literals_to_create_immutables
-        body: Center(
+        body: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 5,
+              child: Container(
+                //padding: EdgeInsets.all(16),
+                //width: 400,
+                //height: 500,
+                alignment: Alignment.center,
+                margin: EdgeInsets.all(80),
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 172, 169, 160), border: Border.all()),
+                child: _loading
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: <Widget>[
+                          LinearProgressIndicator(
+                            value: _progressValue,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            '${(_progressValue * 100).round()}%',
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ],
+                      )
+                    : Text(
+                        'Нажми на кнопку - получишь результат',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      ),
+              ),
+            )
+          ],
           /*child: Stack(
             fit: StackFit.expand,
             children: <Widget> [
@@ -50,38 +245,6 @@ class _MyFirstAppState extends State<experimentalApp> {
             Image.asset('Assets/icons/015 icon.png'),
             ],
           ),*/
-          child: Container(
-            padding: EdgeInsets.all(16),
-            width: 400,
-            height: 500,
-            alignment: Alignment.center,
-            margin: EdgeInsets.all(50),
-            decoration:
-                BoxDecoration(color: Colors.amber, border: Border.all()),
-            child: _loading
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: <Widget>[
-                      LinearProgressIndicator(
-                        value: _progressValue,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        '${(_progressValue * 100).round()}%',
-                        style: TextStyle(color: Colors.black, fontSize: 20),
-                      ),
-                    ],
-                  )
-                : Text(
-                    'Нажми на кнопку - получишь результат',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
-                  ),
-          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (() => setState(() {
@@ -110,7 +273,7 @@ class _MyFirstAppState extends State<experimentalApp> {
     });
   }
 }
-
+*/
 /*
 class experimentalApp extends StatelessWidget {
   @override
