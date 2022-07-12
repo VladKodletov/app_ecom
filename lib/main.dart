@@ -2,6 +2,120 @@
 
 import 'package:flutter/material.dart';
 
+void main() => runApp(Listing());
+
+class Listing extends StatelessWidget {
+  @override
+  // TODO: implement key
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 203, 232, 255),
+          title: Text(
+            'List View',
+            style: TextStyle(color: Colors.indigo),
+          ),
+          centerTitle: true,
+        ),
+        body: BodyList(),
+      ),
+    );
+  }
+}
+
+class BodyList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _myListView();
+  }
+}
+
+Widget _myListView() {
+  return ListView();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void main() => runApp(WeatherApp());
 
 class WeatherApp extends StatelessWidget {
@@ -49,89 +163,7 @@ Image _headImage() {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
