@@ -33,7 +33,19 @@ class BodyList extends StatelessWidget {
 }
 
 Widget _myListView() {
-  return ListView();
+  final List<String> items = List<String>.generate(1000, (i) => 'Item $i');
+  return ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      return Card(
+        child: ListTile(
+          title: Text('${items[index]}'),
+          leading: Icon(Icons.account_box),
+          trailing: Icon(Icons.phone_bluetooth_speaker),
+        ),
+      );
+    },
+  );
 }
 
 
