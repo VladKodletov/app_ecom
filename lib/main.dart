@@ -1,51 +1,21 @@
-// ignore_for_file: avoid_print, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(Listing());
+void main() {
+  runApp(MyApp());
+}
 
-class Listing extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
-  // TODO: implement key
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 203, 232, 255),
-          title: Text(
-            'List View',
-            style: TextStyle(color: Colors.indigo),
-          ),
-          centerTitle: true,
-        ),
-        body: BodyList(),
+      title: 'Registration Form',
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: RegistrationForm(),
     );
   }
-}
-
-class BodyList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return _myListView();
-  }
-}
-
-Widget _myListView() {
-  final List<String> items = List<String>.generate(1000, (i) => 'Item $i');
-  return ListView.builder(
-    itemCount: items.length,
-    itemBuilder: (context, index) {
-      return Card(
-        child: ListTile(
-          title: Text('${items[index]}'),
-          leading: Icon(Icons.account_box),
-          trailing: Icon(Icons.phone_bluetooth_speaker),
-        ),
-      );
-    },
-  );
 }
 
 
@@ -196,7 +166,56 @@ Image _headImage() {
 
 
 
+/*
+import 'package:flutter/material.dart';
 
+void main() => runApp(Listing());
+
+class Listing extends StatelessWidget {
+  @override
+  // TODO: implement key
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 203, 232, 255),
+          title: Text(
+            'List View',
+            style: TextStyle(color: Colors.indigo),
+          ),
+          centerTitle: true,
+        ),
+        body: BodyList(),
+      ),
+    );
+  }
+}
+
+class BodyList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _myListView();
+  }
+}
+
+Widget _myListView() {
+  final List<String> items = List<String>.generate(1000, (i) => 'Item $i');
+  return ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      return Card(
+        child: ListTile(
+          title: Text('${items[index]}'),
+          leading: Icon(Icons.account_box),
+          trailing: Icon(Icons.phone_bluetooth_speaker),
+        ),
+      );
+    },
+  );
+}
+
+*/
 
 
 
