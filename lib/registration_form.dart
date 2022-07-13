@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({Key? key}) : super(key: key);
@@ -8,6 +9,17 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
+  final _nameControllerText = TextEditingController();
+  @override
+  void dispose() {
+    _nameControllerText.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+  void _submitForm() {
+      print('${_nameControllerText.text}');
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +32,29 @@ class _RegistrationFormState extends State<RegistrationForm> {
           padding: EdgeInsets.all(16),
           children: [
             TextField(
-              decoration: InputDecoration(labelText: 'Name *'),
+              controller: _nameControllerText,
+              decoration: InputDecoration(
+                labelText: 'Name *',
+                hintText: 'Your pogonyalo',
+                prefixIcon: Icon(Icons.person),
+                suffixIcon: Icon(
+                  Icons.delete_outline,
+                  color: Colors.red,
+                ),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderSide: BorderSide(color: Colors.grey, width: 3)),
+              ),
             ),
             SizedBox(
               height: 10,
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Phone number *'),
+              keyboardType: TextInputType.phone,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              decoration: InputDecoration(
+                  labelText: 'Phone number *',
+                  helperText: 'Phone +7(333)5552211'),
             ),
             SizedBox(
               height: 10,
@@ -38,7 +66,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
               height: 10,
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'About you *'),
+              decoration: InputDecoration(
+                labelText: 'About you *',
+              ),
+              maxLines: 4,
             ),
             SizedBox(
               height: 10,
@@ -56,12 +87,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
               height: 15,
             ),
             ElevatedButton(
-                onPressed: () {},
-                child: Text('Submit Form',
-                    style: TextStyle(color: Colors.white12))),
+                onPressed: _submitForm,
+                child:
+                    Text('Submit Form', style: TextStyle(color: Colors.white))),
           ],
         ),
       ),
     );
+    
   }
 }
