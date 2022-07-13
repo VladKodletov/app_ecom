@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({Key? key}) : super(key: key);
 
@@ -19,9 +18,50 @@ class _RegistrationFormState extends State<RegistrationForm> {
       body: Form(
         child: ListView(
           padding: EdgeInsets.all(16),
-          children: [],
+          children: [
+            TextField(
+              decoration: InputDecoration(labelText: 'Name *'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Phone number *'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Email *'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'About you *'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Password *'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Confirm password *'),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text('Submit Form',
+                    style: TextStyle(color: Colors.white12))),
+          ],
         ),
       ),
-    ); 
+    );
   }
 }
