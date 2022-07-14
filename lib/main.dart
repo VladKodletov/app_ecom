@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 import 'registration_form.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       home: RegistrationForm(),
     );
   }
+
 }
 
 

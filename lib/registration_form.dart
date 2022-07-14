@@ -11,9 +11,6 @@ class RegistrationForm extends StatefulWidget {
 class _RegistrationFormState extends State<RegistrationForm> {
   final _nameControllerText = TextEditingController();
 
-  List<String> _countries = ['Россия', 'Norussia', 'Nononorussia'];
-  String? _selectedCountry;
-
   @override
   void dispose() {
     _nameControllerText.dispose();
@@ -23,6 +20,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   void _submitForm() {
     print('${_nameControllerText.text}');
+    _showDialog();
   }
 
   @override
@@ -42,16 +40,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 labelText: 'Name *',
                 hintText: 'Your pogonyalo',
                 prefixIcon: Icon(Icons.person),
-                suffixIcon: Icon(
-                  Icons.delete_outline,
-                  color: Colors.red,
+                suffixIcon: GestureDetector(
+                  onTap: (() => _nameControllerText.clear()),
+                  child: Icon(
+                    Icons.delete_outline,
+                    color: Colors.red,
+                  ),
                 ),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(color: Colors.grey, width: 3)),
               ),
-              validator: (val) =>
-                  val != null && val.isEmpty ? 'Name please' : null,
             ),
             SizedBox(
               height: 10,
@@ -72,7 +71,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
             SizedBox(
               height: 10,
             ),
-                        SizedBox(
+            SizedBox(
               height: 10,
             ),
             TextFormField(
@@ -105,5 +104,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ),
       ),
     );
+  }
+
+  void _showDialog({String }) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Registration success'),
+            content: Text(' is now are verification'),
+          );
+        });
   }
 }
