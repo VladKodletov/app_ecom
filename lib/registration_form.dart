@@ -10,15 +10,20 @@ class RegistrationForm extends StatefulWidget {
 
 class _RegistrationFormState extends State<RegistrationForm> {
   final _nameControllerText = TextEditingController();
+
+  List<String> _countries = ['Россия', 'Norussia', 'Nononorussia'];
+  String? _selectedCountry;
+
   @override
   void dispose() {
     _nameControllerText.dispose();
     // TODO: implement dispose
     super.dispose();
   }
+
   void _submitForm() {
-      print('${_nameControllerText.text}');
-    }
+    print('${_nameControllerText.text}');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
         child: ListView(
           padding: EdgeInsets.all(16),
           children: [
-            TextField(
+            TextFormField(
               controller: _nameControllerText,
               decoration: InputDecoration(
                 labelText: 'Name *',
@@ -45,6 +50,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(color: Colors.grey, width: 3)),
               ),
+              validator: (val) =>
+                  val != null && val.isEmpty ? 'Name please' : null,
             ),
             SizedBox(
               height: 10,
@@ -65,11 +72,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
             SizedBox(
               height: 10,
             ),
+                        SizedBox(
+              height: 10,
+            ),
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'About you *',
               ),
               maxLines: 4,
+              inputFormatters: [LengthLimitingTextInputFormatter(15)],
             ),
             SizedBox(
               height: 10,
@@ -94,6 +105,5 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ),
       ),
     );
-    
   }
 }
