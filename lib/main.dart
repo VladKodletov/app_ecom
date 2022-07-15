@@ -1,13 +1,23 @@
-
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'registration_form.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Network());
 }
 
-class MyApp extends StatelessWidget {
+class Network extends StatefulWidget {
+  @override
+  _NetworkState createState() => _NetworkState();
+}
+
+class _NetworkState extends State<Network> {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,9 +30,24 @@ class MyApp extends StatelessWidget {
       home: RegistrationForm(),
     );
   }
-
 }
 
+Future<http.Response> getData() async {
+  dynamic url = 'https://about.google/static/data/locations.json';
+  return await http.get(url);
+}
+
+void loadData() {
+  getData().then((response) {
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      print(response.statusCode);
+    }
+  }).catchError((error) {
+    debugPrint(error.toString());
+  });
+}
 
 
 
