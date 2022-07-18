@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_declarations, avoid_print, unused_local_variable, file_names, unused_element
+
 void main() {
   ///слово void(пустота) вначале функции - указывает что она не возвращает значения
   ///а просто выполняет действия.
