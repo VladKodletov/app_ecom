@@ -2,15 +2,16 @@
 
 import 'package:flutter/material.dart';
 
-class Person {
-  var name = 'Vlad';
-  var age = 33;
-  myPsichologyAce() {
-    return age + 10;
-  }
+void main() {
+  runApp(MyGoodApp());
 }
 
-void main() {
-  var p1 = Person();
-  print(p1.myPsichologyAce());
+class MyGoodApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Center(child: Text('Здоровчик, Вовчик')),
+    );
+  }
 }
