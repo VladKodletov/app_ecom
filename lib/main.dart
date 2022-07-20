@@ -11,7 +11,28 @@ class MyGoodApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Center(child: Text('Здоровчик, Вовчик')),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Здоровчик, Вовчик'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Text('Вопрос первый'),
+            RaisedButton(
+              child: Text('Ответ 1'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Ответ 2'),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text('Ответ 3'),
+              onPressed: null,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
