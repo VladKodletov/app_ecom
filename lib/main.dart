@@ -7,6 +7,10 @@ void main() {
 }
 
 class MyGoodApp extends StatelessWidget {
+  void answerQ() {
+    print('Answer!!!');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +24,7 @@ class MyGoodApp extends StatelessWidget {
             Text('Вопрос первый'),
             RaisedButton(
               child: Text('Ответ 1'),
-              onPressed: null,
+              onPressed: answerQ(),
             ),
             RaisedButton(
               child: Text('Ответ 2'),
