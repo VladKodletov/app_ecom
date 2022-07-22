@@ -6,9 +6,30 @@ void main() {
   runApp(MyGoodApp());
 }
 
-class MyGoodApp extends StatelessWidget {
+class MyGoodApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyGoodAppState();
+  }
+}
+
+class MyGoodAppState extends State<MyGoodApp> {
+  var questionInd = 0;
+
+  void answerQQQ() {
+    setState(() {
+    questionInd = questionInd + 1;  
+    });
+        print(questionInd);
+  }
+
   @override
   Widget build(BuildContext context) {
+    var questionNumber = [
+      'Назови свой любимый цвет?',
+      'Назови своё любимое животное?',
+    ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -17,18 +38,25 @@ class MyGoodApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Text('Вопрос первый'),
-            RaisedButton(
-              child: Text('Ответ 1'),
-              onPressed: null,
+            Text(
+              questionNumber[
+                  questionInd], // другой вариант -questionNumber.elementAt(0),
             ),
             RaisedButton(
-              child: Text('Ответ 2'),
-              onPressed: null,
+              child: Text('Красный'),
+              onPressed: answerQQQ,
             ),
             RaisedButton(
-              child: Text('Ответ 3'),
-              onPressed: null,
+              child: Text('Желтый'),
+              onPressed: () {
+                print('Выбран ответ Желтый');
+              },
+            ),
+            RaisedButton(
+              child: Text('Голубой'),
+              onPressed: () {
+                print('Выбран ответ Голубой');
+              },
             ),
           ],
         ),
