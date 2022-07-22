@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import, avoid_print
 
+import 'package:app_ecom/question.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,18 +11,18 @@ class MyGoodApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyGoodAppState();
+    return _MyGoodAppState();
   }
 }
 
-class MyGoodAppState extends State<MyGoodApp> {
-  var questionInd = 0;
+class _MyGoodAppState extends State<MyGoodApp> {
+  var _questionInd = 0;
 
   void answerQQQ() {
     setState(() {
-    questionInd = questionInd + 1;  
+    _questionInd = _questionInd + 1;  
     });
-        print(questionInd);
+        print(_questionInd);
   }
 
   @override
@@ -34,13 +35,13 @@ class MyGoodAppState extends State<MyGoodApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Здоровчик, Вовчик'),
+          title: Text('Здоровчик, Вовчик',),
         ),
         body: Column(
           children: <Widget>[
-            Text(
+            QQQuestion(
               questionNumber[
-                  questionInd], // другой вариант -questionNumber.elementAt(0),
+                  _questionInd], // другой вариант -questionNumber.elementAt(0),
             ),
             RaisedButton(
               child: Text('Красный'),
