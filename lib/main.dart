@@ -29,8 +29,30 @@ class _MyGoodAppState extends State<MyGoodApp> {
   @override
   Widget build(BuildContext context) {
     var questionNumber = [
-      'Назови свой любимый цвет?',
-      'Назови своё любимое животное?',
+      {
+        'questionText': 'Назови свой любимый цвет?',
+        'answers': [
+          'черный',
+          'красный',
+          'зеленый',
+        ],
+      },
+      {
+        'questionText': 'Назови своё любимое животное?',
+        'answers': [
+          'кролик',
+          'конь',
+          'як',
+        ],
+      },
+      {
+        'questionText': 'Назови своего любимого препода?',
+        'answers': [
+          'Макс',
+          'Макс',
+          'Макс',
+        ],
+      },
     ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -43,12 +65,13 @@ class _MyGoodAppState extends State<MyGoodApp> {
         body: Column(
           children: <Widget>[
             QQQuestion(
-              questionNumber[
-                  _questionInd], // другой вариант -questionNumber.elementAt(0),
+              questionNumber[_questionInd]['questionText']
+                  as String, // другой вариант -questionNumber.elementAt(0),
             ),
-            Answers(_answerQQQ),
-            Answers(_answerQQQ),
-            Answers(_answerQQQ),
+            ...(questionNumber[_questionInd]['answers'] as List<String>)
+                .map((answer) {
+              return Answers(_answerQQQ, answer);
+            }).toList()
           ],
         ),
       ),

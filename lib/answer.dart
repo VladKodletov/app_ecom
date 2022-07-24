@@ -5,14 +5,16 @@ import './main.dart';
 
 class Answers extends StatelessWidget {
   final VoidCallback selectHand;
-  Answers(this.selectHand);
-  @override
+  final String answerText;
+  Answers(this.selectHand, this.answerText);
+  @override 
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       child: RaisedButton(
         color: Colors.blue,
-        child: Text('Красный'),
+        textColor: Colors.white,
+        child: Text(answerText),
         onPressed: selectHand,
       ),
     );
