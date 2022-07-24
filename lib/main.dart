@@ -17,6 +17,32 @@ class MyGoodApp extends StatefulWidget {
 }
 
 class _MyGoodAppState extends State<MyGoodApp> {
+  final questionNumber = const [
+    {
+      'questionText': 'Назови свой любимый цвет?',
+      'answers': [
+        'черный',
+        'красный',
+        'зеленый',
+      ],
+    },
+    {
+      'questionText': 'Назови своё любимое животное?',
+      'answers': [
+        'кролик',
+        'конь',
+        'як',
+      ],
+    },
+    {
+      'questionText': 'Назови своего любимого препода?',
+      'answers': [
+        'Макс',
+        'Макс',
+        'Макс',
+      ],
+    },
+  ];
   var _questionInd = 0;
 
   void _answerQQQ() {
@@ -24,36 +50,14 @@ class _MyGoodAppState extends State<MyGoodApp> {
       _questionInd = _questionInd + 1;
     });
     print(_questionInd);
+    if (_questionInd < questionNumber.length) {
+      print('Готовься к новым вопросикам!');
+    }
+    
   }
 
   @override
   Widget build(BuildContext context) {
-    var questionNumber = [
-      {
-        'questionText': 'Назови свой любимый цвет?',
-        'answers': [
-          'черный',
-          'красный',
-          'зеленый',
-        ],
-      },
-      {
-        'questionText': 'Назови своё любимое животное?',
-        'answers': [
-          'кролик',
-          'конь',
-          'як',
-        ],
-      },
-      {
-        'questionText': 'Назови своего любимого препода?',
-        'answers': [
-          'Макс',
-          'Макс',
-          'Макс',
-        ],
-      },
-    ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
