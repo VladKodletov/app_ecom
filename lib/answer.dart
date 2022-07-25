@@ -7,13 +7,15 @@ class Answers extends StatelessWidget {
   final VoidCallback selectHand;
   final String answerText;
   Answers(this.selectHand, this.answerText);
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: RaisedButton(
-        color: Colors.blue,
-        textColor: Colors.white,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(Color.fromARGB(255, 34, 163, 146)),
+        ),
         child: Text(answerText),
         onPressed: selectHand,
       ),

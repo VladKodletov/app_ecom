@@ -23,40 +23,44 @@ class _MyGoodAppState extends State<MyGoodApp> {
     {
       'questionText': 'Назови свой любимый цвет?',
       'answers': [
-        'черный',
-        'красный',
-        'зеленый',
+        {'text': 'черный', 'score': 2},
+        {'text': ' красный', 'score': 4},
+        {'text': 'зеленый', 'score': 6},
       ],
     },
     {
       'questionText': 'Назови своё любимое животное?',
       'answers': [
-        'кролик',
-        'конь',
-        'як',
+        {'text': 'кролик', 'score': 2},
+        {'text': 'конь', 'score': 4},
+        {'text': 'як', 'score': 7},
       ],
     },
     {
       'questionText': 'Назови своего любимого препода?',
       'answers': [
-        'Макс',
-        'Макс',
-        'Макс',
+        {'text': 'Макс', 'score': 10},
+        {'text': 'неМакс', 'score': 0},
+        {'text': 'Макс', 'score': 10},
       ],
     },
   ];
   var _questionInd = 0;
+  var _totalScore = 0;
 
-  void _answerQQQ() {
+  void _resetQ() {
+    setState(() { 
+      _questionInd = 0;
+      _totalScore = 0;
+    });
+  }
+
+  void _answerQQQ(int score) {
+    _totalScore = _totalScore + score;
+
     setState(() {
       _questionInd = _questionInd + 1;
     });
-    print(_questionInd);
-    if (_questionInd < _questionNumber.length) {
-      print('Готовься к новым вопросикам!');
-    } else {
-      print('Больше вопросов нет!');
-    }
   }
 
   @override
@@ -75,7 +79,7 @@ class _MyGoodAppState extends State<MyGoodApp> {
                 questionNumber: _questionNumber,
                 questionInd: _questionInd,
               )
-            : Resulttt(),
+            : Resulttt(_totalScore, _resetQ),
       ),
     );
   }

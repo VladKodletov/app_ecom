@@ -10,12 +10,13 @@ import 'main.dart';
 class Quizzz extends StatelessWidget {
   final List<Map<String, Object>> questionNumber;
   final int questionInd;
-  final VoidCallback answerQQQ;
+  final answerQQQ;
 
-  Quizzz(
-      {required this.questionNumber,
-      required this.answerQQQ,
-      required this.questionInd});
+  Quizzz({
+    required this.questionNumber,
+    required this.questionInd,
+    required this.answerQQQ,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,9 @@ class Quizzz extends StatelessWidget {
           questionNumber[questionInd]['questionText']
               as String, // другой вариант -questionNumber.elementAt(0),
         ),
-        ...(questionNumber[questionInd]['answers'] as List<String>)
+        ...(questionNumber[questionInd]['answers'] as List<Map<String, Object>>)
             .map((answer) {
-          return Answers(answerQQQ, answer);
+          return Answers(() => answerQQQ(answer['score']), answer['text'] as String);
         }).toList()
       ],
     );
