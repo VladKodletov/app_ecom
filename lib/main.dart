@@ -2,7 +2,9 @@
 
 import 'package:app_ecom/answer.dart';
 import 'package:app_ecom/question.dart';
+import 'package:app_ecom/resulttt.dart';
 import 'package:flutter/material.dart';
+import 'quizzz.dart';
 
 void main() {
   runApp(MyGoodApp());
@@ -17,7 +19,7 @@ class MyGoodApp extends StatefulWidget {
 }
 
 class _MyGoodAppState extends State<MyGoodApp> {
-  final questionNumber = const [
+  final _questionNumber = const [
     {
       'questionText': 'Назови свой любимый цвет?',
       'answers': [
@@ -50,10 +52,11 @@ class _MyGoodAppState extends State<MyGoodApp> {
       _questionInd = _questionInd + 1;
     });
     print(_questionInd);
-    if (_questionInd < questionNumber.length) {
+    if (_questionInd < _questionNumber.length) {
       print('Готовься к новым вопросикам!');
+    } else {
+      print('Больше вопросов нет!');
     }
-    
   }
 
   @override
@@ -66,18 +69,13 @@ class _MyGoodAppState extends State<MyGoodApp> {
             'Здоровчик, Вовчик',
           ),
         ),
-        body: Column(
-          children: <Widget>[
-            QQQuestion(
-              questionNumber[_questionInd]['questionText']
-                  as String, // другой вариант -questionNumber.elementAt(0),
-            ),
-            ...(questionNumber[_questionInd]['answers'] as List<String>)
-                .map((answer) {
-              return Answers(_answerQQQ, answer);
-            }).toList()
-          ],
-        ),
+        body: _questionInd < _questionNumber.length
+            ? Quizzz(
+                answerQQQ: _answerQQQ,
+                questionNumber: _questionNumber,
+                questionInd: _questionInd,
+              )
+            : Resulttt(),
       ),
     );
   }

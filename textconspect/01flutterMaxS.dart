@@ -98,3 +98,6 @@
 ///const и final
 ///final - может динамически меняться
 ///const - окончательное значение
+///
+///null Value & Null Safety
+///
