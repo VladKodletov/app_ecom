@@ -1,4 +1,4 @@
-# app_ecom
+# future_test_friends
 
 A new Flutter project.
 

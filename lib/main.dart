@@ -1,8 +1,8 @@
 // ignore_for_file: unused_import, avoid_print
 
-import 'package:app_ecom/answer.dart';
-import 'package:app_ecom/question.dart';
-import 'package:app_ecom/resulttt.dart';
+import 'package:future_test_friends/answer.dart';
+import 'package:future_test_friends/question.dart';
+import 'package:future_test_friends/resulttt.dart';
 import 'package:flutter/material.dart';
 import 'quizzz.dart';
 
